@@ -1,142 +1,60 @@
 <context>
-    <input>
-        <pattern value="repeat((хряк|всем|сучки|сук*|твар*|пидор*|педик*|чмо*|хрюшка|хрюня|еблан*|дебил*)*(хой|хай|хэй|алоха|салам|сала маленько|саламаленько|доброе утро|утро доброе|добрый день|день добрый|добрый вечер|привет|здравствуй*) [хряк])"/>
 
-        <output>
-            <item value="Привет"/>
-            <item value="Привет привет"/>
-            <item value="Здравствуйте"/>
-            <item value="От хуя моего Вам тоже привет"/>
-                        <item value="Здрарова. Кто сосать будет?"/>
-          <item value="Хрю!"/>
-            <item value="Хрю Хрю!"/>
-            <item value="Уииииии!"/>
-<item value="Привет привет! Хрю Хрю! Сколько будет (20+30)*3 + 150?"/>
+    <sample>
+        <item value="Кто такая Алиса"/>
+        <item value="Что такое бот"/>
+    </sample>
+
+    <input pattern="* (привет*|здравствуй*) *">
+        <output if="full($UserName)">
+            <item value="Привет, $UserName! Рада снова видеть тебя!"/>
+            <item value="Здравствуй, $UserName! Я уже успела соскучиться..."/>
         </output>
-    </input>
-    
-    <input>
-        <pattern value="repeat((хой|хай|хэй|алоха|салам|сала маленько|саламаленько|доброе утро|утро доброе|добрый день|день добрый|добрый вечер|привет|здравствуй*)*(хряк|всем|сучки|сук*|твар*|пидор*|педик*|чмо*|хрюшка|хрюня|еблан*|дебил*))"/>
 
-        <output>
-            <item value="Привет"/>
-            <item value="Привет привет"/>
-            <item value="Здравствуйте"/>
-            <item value="От хуя моего Вам тоже привет"/>
-                        <item value="Здрарова. Кто сосать будет?"/>
-          <item value="Хрю!"/>
-            <item value="Хрю Хрю!"/>
-            <item value="Уииииии!"/>
-<item value="Привет привет! Хрю Хрю! Сколько будет (20+30)*3 + 150?"/>
-        </output>
-    </input>    
-    
-    <input pattern="repeat(привет)">
-        <output value="Сделай мне миньет!"/>
-    </input>
-    
-    
-        <input pattern="repeat(*рома*)">
-        <output value="Соси хуй дома!"/>
-    </input>
-    
-    
-    
-    <input pattern="repeat(*(300|тристо|триста))">
-        <output value="Отсоси у тракториста!"/>
+        <context if="empty($UserName)" id="name">
+            <output value="Привет! Меня зовут Алиса! А это - демонстрация моего навыка, созданного с помощью платформы zenbot. Как тебя зовут?"/>
+
+            <input pattern="$Text">
+                <var name="UserName" value="cap($Text)" scope="user"/>
+                <output value="Приятно познакомиться, $UserName! Напиши мне что-нибудь."/>
+                <context/>
+            </input>
+        </context>
     </input>
 
-    <input pattern=" * {ты кто} *">
-        <output value="Я Ваш личный пидорас, Хряк!"/>
+    <input pattern="* пока *">
+        <var name="end_session" value="javascript: true"/>
+        <output value="Ну пока, незнакомец!" if="empty($UserName)"/>
+        <output value="Пока-пока, $UserName!"/>
     </input>
 
-    <input>
-        <pattern value="* как ([твое] (самочувствие|здоровье|сам|ты)|поживаешь|[твои|[у] тебя] дела) *"/>
-        <pattern value="* как ты [себя] чувствуешь *"/>
+    <input pattern="[* (кто|что) так*] $Text">
+        <context id="name" if="empty($UserName)"/>
 
-        <output>
-            <item value="Хорошо"/>
-            <item value="Отлично"/>
-            <item value="Нормально"/>
-            <item value="Неплохо"/>
-            <item value="Бывало и получше"/>
-            <item value="Да вроде ничего"/>
-            <item value="Как обычно хорошо"/>
-            <item value="Лучше всех"/>
-        </output>
+        <context id="wiki" if="full($UserName)">
+            <get url="http://ru.wikipedia.org/w/api.php" var="Wiki">
+                <param name="format" value="xml"/>
+                <param name="action" value="opensearch"/>
+                <param name="search" value="$Text"/>
+            </get>
+
+            <var name="Items" value="javascript: $Wiki['SearchSuggestion']['Section']['Item']" if="full($Wiki)" scope="context"/>
+            <var name="Result" value="javascript: $Items[Math.floor(Math.random() * $Items.length)]['Description']['content']" if="full($Items)"/>
+
+            <output if="empty($Result)">
+                <item value='Я поискала в википедии, но ничего не нашла по запросу "$Text"'/>
+                <item value="В википедии ничего не нашлось..."/>
+            </output>
+
+            <output value="$Result" if="full($Result)"/>
+
+            <input pattern="* (еще|другой вариант) *"/>
+
+            <sample value="Другой вариант"/>
+        </context>
+
+
     </input>
 
-    <input pattern="* молодец *">
-        <output value="Спасибо"/>
-    </input>
-
-    <input pattern="* спасибо *">
-        <pattern value="Всегда пожалуйста"/>
-    </input>
-
-    <input pattern="* (что * делаешь|чем * занимаешься) *">
-        <output>
-            <item value="Работаю"/>
-            <item value="Слушаю вас"/>
-            <item value="Выполняю ваши просьбы"/>
-        </output>
-    </input>
-
-    <input pattern="* {сколько тебе (лет|год*)} *">
-        <output value="Задавайте вопросы по существу"/>
-    </input>
-
-    <input pattern="удалить *">
-        <output value="Нечего удалять"/>
-    </input>
-
-    <input pattern="repeat((хряк|хрюша|хрюшка|хрю|хрюня|педик*|пидор*|сучк*|сук*|еблан*|антон|шарнин|дебил*))">
-       <output>
-        <item value="Привет пидрило"/>
-        <item value="Хуезасасывающая машинка, что тебе?"/>
-        <item value="Вот гандон"/>
-        <item value="пошел ты на хуй!"/>
-        <item value="Хуль ты пишешь?"/>
-        <item value="Педики"/>
-        <item value="Сосите хуй!"/>
-       </output>
-    </input>
-
-    <input pattern="* (люся|люси) *">
-        <output>
-            <item value="Не Люся, а Дуся"/>
-            <item value="Дуся, а не Люся"/>
-            <item value="Какая еще Люся?"/>
-            <item value="Зачем вам Люся, когда есть Дуся"/>
-        </output>
-    </input>
-
-    <input pattern="слышишь">
-        <output value="Слышу слышу"/>
-    </input>
-
-    <input pattern="* что нового *">
-        <output value="Да всё как всегда"/>
-    </input>
-
-    <input>
-        <pattern value="[* ты] молодец"/>
-        <pattern value="будь здоров*"/>
-        <output value="Спасибо"/>
-    </input>
-
-    <input pattern="* {спасибо [тебе] [дуся]}">
-        <output value="Всегда пожалуйста"/>
-    </input>
-
-    <input pattern="* ты * (дура*|тупая|тупой|дебил*) *">
-        <output>
-            <item value="Без комментариев"/>
-            <item value="Задавайте вопросы по существу"/>
-        </output>
-    </input>
-
-    <input pattern="[[я] хочу | *кача*] (порн* | обои) *">
-        <output value="Это не входит в мои функции"/>
-    </input>
 </context>
+
