@@ -45,7 +45,7 @@
             <output if="empty($Result)">
                 <item value='Я поискал в своих источниках, но мне сказали чтобы ты, $UserName, хуй сосал. А про эту хуйню: "$Text" я тебе ничего не расскажу'/>
                 <item value="У мамки своей спроси..."/>
-                <item value="Все говорят: "$Text", а ты сосни хуйца у свинки ..."/>
+                <item value='Все говорят: "$Text", а ты сосни хуйца у свинки ...'/>
             </output>
 
             <output value="$Result" if="full($Result)"/>
