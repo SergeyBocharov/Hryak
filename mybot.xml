@@ -1,16 +1,97 @@
-import telebot
+<context>
+    <input>
+        <pattern value="repeat([Хряк|всем|хряк|хрюша|Хрюша] (здорова|хай|хой|хей|здарова|здарово|привет|здравствуй*) [хряк|все*|хрюша|чмо|сучки|сучка|пидор*])"/>
 
-bot = telebot.TeleBot('757463093:AAF7up9b2OeZenOM749_UDaXbBwjoSpVZn4')
+        <output>
+            <item value="Привет"/>
+            <item value="Привет привет"/>
+            <item value="Здравствуйте"/>
+        </output>
+    </input>
 
-@bot.message_handler(commands=['start'])
-def start_message(message):
-    bot.send_message(message.chat.id, 'Привет, ты написал мне /start')
+    <input pattern=" * {ты кто} *">
+        <output value="Я Ваш личный голосовой ассистент"/>
+    </input>
 
-@bot.message_handler(content_types=['text'])
-def send_text(message):
-    if message.text.lower() == 'привет':
-        bot.send_message(message.chat.id, 'Привет, мой создатель')
-    elif message.text.lower() == 'пока':
-        bot.send_message(message.chat.id, 'Прощай, создатель')
+    <input>
+        <pattern value="* как ([твое] (самочувствие|здоровье)|поживаешь|[твои|[у] тебя] дела) *"/>
+        <pattern value="* как ты [себя] чувствуешь *"/>
 
-bot.polling()
+        <output>
+            <item value="Хорошо"/>
+            <item value="Отлично"/>
+            <item value="Нормально"/>
+            <item value="Неплохо"/>
+            <item value="Бывало и получше"/>
+            <item value="Да вроде ничего"/>
+            <item value="Как обычно хорошо"/>
+            <item value="Лучше всех"/>
+        </output>
+    </input>
+
+    <input pattern="* молодец *">
+        <output value="Спасибо"/>
+    </input>
+
+    <input pattern="* спасибо *">
+        <pattern value="Всегда пожалуйста"/>
+    </input>
+
+    <input pattern="* (что * делаешь|чем * занимаешься) *">
+        <output>
+            <item value="Работаю"/>
+            <item value="Слушаю вас"/>
+            <item value="Выполняю ваши просьбы"/>
+        </output>
+    </input>
+
+    <input pattern="* {сколько тебе (лет|год*)} *">
+        <output value="Задавайте вопросы по существу"/>
+    </input>
+
+    <input pattern="удалить *">
+        <output value="Нечего удалять"/>
+    </input>
+
+    <input pattern="repeat(дуся)">
+        <output value="Привет"/>
+    </input>
+
+    <input pattern="* (люся|люси) *">
+        <output>
+            <item value="Не Люся, а Дуся"/>
+            <item value="Дуся, а не Люся"/>
+            <item value="Какая еще Люся?"/>
+            <item value="Зачем вам Люся, когда есть Дуся"/>
+        </output>
+    </input>
+
+    <input pattern="слышишь">
+        <output value="Слышу слышу"/>
+    </input>
+
+    <input pattern="* что нового *">
+        <output value="Да всё как всегда"/>
+    </input>
+
+    <input>
+        <pattern value="[* ты] молодец"/>
+        <pattern value="будь здоров*"/>
+        <output value="Спасибо"/>
+    </input>
+
+    <input pattern="* {спасибо [тебе] [дуся]}">
+        <output value="Всегда пожалуйста"/>
+    </input>
+
+    <input pattern="* ты * (дура*|тупая|тупой|дебил*) *">
+        <output>
+            <item value="Без комментариев"/>
+            <item value="Задавайте вопросы по существу"/>
+        </output>
+    </input>
+
+    <input pattern="[[я] хочу | *кача*] (порн* | обои) *">
+        <output value="Это не входит в мои функции"/>
+    </input>
+</context>
