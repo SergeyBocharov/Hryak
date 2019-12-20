@@ -7,16 +7,16 @@
     </sample>
 
     <input pattern="* (привет*|здравствуй*|хой|эх|хай|хэй|салам|здоров*|здаров*) *">
-        <output if="full($UserName)">
+        <output if="full(message.chat.username)">
             <item value="Здорова, $UserName! Рад снова видеть тебя! Хуй сосать будешь?"/>
             <item value="Привет, $UserName! Ты мне хорошо вылезал дупло! Я уже успел соскучиться..."/>
         </output>
 
-        <context if="empty($UserName)" id="name">
+        <context if="empty(message.chat.username)" id="name">
             <output value="Привет! Меня зовут Хряк! А это - демонстрация моего члена и также моих навыков, созданных с помощью Сергея Бочарова. Как тебя зовут?"/>
 
             <input pattern="$Text">
-                <var name="UserName" value="from_user.first_name" scope="user"/>
+                <var name="UserName" value="message.chat.username" scope="user"/>
                 <output value="Ты чмо, $UserName! Но приятно познакомиться! Напиши мне что-нибудь."/>
                 <context/>
             </input>
