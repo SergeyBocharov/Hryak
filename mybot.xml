@@ -15,16 +15,16 @@
         </output>
     </input>
     
-    <input pattern="*(300)*">
-        <output value="Я Ваш личный голосовой ассистент"/>
+    <input pattern="repeat(*(300|тристо|триста))">
+        <output value="Отсоси у тракториста!"/>
     </input>
 
     <input pattern=" * {ты кто} *">
-        <output value="Я Ваш личный голосовой ассистент"/>
+        <output value="Я Ваш личный пидорас, Хряк!"/>
     </input>
 
     <input>
-        <pattern value="* как ([твое] (самочувствие|здоровье)|поживаешь|[твои|[у] тебя] дела) *"/>
+        <pattern value="* как ([твое] (самочувствие|здоровье|сам|ты)|поживаешь|[твои|[у] тебя] дела) *"/>
         <pattern value="* как ты [себя] чувствуешь *"/>
 
         <output>
@@ -63,8 +63,14 @@
         <output value="Нечего удалять"/>
     </input>
 
-    <input pattern="repeat(дуся)">
-        <output value="Привет"/>
+    <input pattern="repeat(хряк|хрюша|хрюшка|хрю|хрюня|педик*|пидор*|сучк*|сук*|еблан*|дебил*)">
+        <output value="Привет пидрило"/>
+        <output value="Хуезасасывающая машинка, что тебе?"/>
+        <output value="Вот гандон"/>
+        <output value="пошел ты на хуй!"/>
+        <output value="Хуль ты пишешь?"/>
+        <output value="Педики"/>
+        <output value="Сосите хуй!"/>
     </input>
 
     <input pattern="* (люся|люси) *">
