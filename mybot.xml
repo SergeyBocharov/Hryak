@@ -1,19 +1,16 @@
-<context>
-    <input pattern="привет">
-        <output value="Приветик"/>
-    </input>
-    <input pattern="* как * дела *">
-        <output value="Отлично! А твои?"/>
-        <context modal="true">
-            <input pattern="* (хорош*|отличн*|прекрасн*) *">
-                <output>
-                    <item value="Это просто замечательно!"/>
-                    <item value="Здорово!"/>
-                </output>
-            </input>
-            <input pattern="* (плох*|не очень|так себе) *">
-                <output value="Не вешай нос!"/>
-            </input>
-        </context>
-    </input>
-</context>
+import telebot
+
+bot = telebot.TeleBot('757463093:AAF7up9b2OeZenOM749_UDaXbBwjoSpVZn4')
+
+@bot.message_handler(commands=['start'])
+def start_message(message):
+    bot.send_message(message.chat.id, 'Привет, ты написал мне /start')
+
+@bot.message_handler(content_types=['text'])
+def send_text(message):
+    if message.text.lower() == 'привет':
+        bot.send_message(message.chat.id, 'Привет, мой создатель')
+    elif message.text.lower() == 'пока':
+        bot.send_message(message.chat.id, 'Прощай, создатель')
+
+bot.polling()
