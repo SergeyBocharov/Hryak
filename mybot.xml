@@ -1,6 +1,6 @@
 <context>
     <input>
-        <pattern value="repeat([хряк|всем] (привет|здравствуй*) [хряк])"/>
+        <pattern value="repeat((хряк|всем) (привет|здравствуй*) [хряк])"/>
 
         <output>
             <item value="Привет"/>
