@@ -1,138 +1,142 @@
-Skip to content
-Search or jump to…
+<context>
+    <input>
+        <pattern value="repeat((хряк|всем|сучки|сук*|твар*|пидор*|педик*|чмо*|хрюшка|хрюня|еблан*|дебил*)*(хой|хай|хэй|алоха|салам|сала маленько|саламаленько|доброе утро|утро доброе|добрый день|день добрый|добрый вечер|привет|здравствуй*) [хряк])"/>
 
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@SergeyBocharov 
-0
-00SergeyBocharov/Hryak2
- Code Issues 0 Pull requests 0 Actions Projects 0 Wiki Security Insights Settings
-Hryak2
-/
-SimpleBot.java
- 
+        <output>
+            <item value="Привет"/>
+            <item value="Привет привет"/>
+            <item value="Здравствуйте"/>
+            <item value="От хуя моего Вам тоже привет"/>
+                        <item value="Здрарова. Кто сосать будет?"/>
+          <item value="Хрю!"/>
+            <item value="Хрю Хрю!"/>
+            <item value="Уииииии!"/>
+<item value="Привет привет! Хрю Хрю! Сколько будет (20+30)*3 + 150?"/>
+        </output>
+    </input>
+    
+    <input>
+        <pattern value="repeat((хой|хай|хэй|алоха|салам|сала маленько|саламаленько|доброе утро|утро доброе|добрый день|день добрый|добрый вечер|привет|здравствуй*)*(хряк|всем|сучки|сук*|твар*|пидор*|педик*|чмо*|хрюшка|хрюня|еблан*|дебил*))"/>
 
-1
-/**
-2
- * Class SimpleBot
-3
- *
-4
- * @author Sergey Iryupin
-5
- * @version 0.3.1 dated Apr 13, 2017
-6
- */
-7
-package bot;
-8
-import java.util.*;
-9
-import java.util.regex.*;
-10
-​
-11
-public class SimpleBot {
-12
-    final String[] COMMON_PHRASES = {
-13
-        "Нет ничего ценнее слов, сказанных к месту и ко времени.",
-14
-        "Порой молчание может сказать больше, нежели уйма слов.",
-15
-        "Перед тем как писать/говорить всегда лучше подумать.",
-16
-        "Вежливая и грамотная речь говорит о величии души.",
-17
-        "Приятно когда текст без орфографических ошибок.",
-18
-        "Многословие есть признак неупорядоченного ума.",
-19
-        "Слова могут ранить, но могут и исцелять.",
-20
-        "Записывая слова, мы удваиваем их силу.",
-21
-        "Кто ясно мыслит, тот ясно излагает.",
-22
-        "Боюсь Вы что-то не договариваете."};
-23
-    final String[] ELUSIVE_ANSWERS = {
-24
-        "Вопрос непростой, прошу тайм-аут на раздумья.",
-25
-        "Не уверен, что располагаю такой информацией.",
-26
-        "Может лучше поговорим о чём-то другом?",
-27
-        "Простите, но это очень личный вопрос.",
-28
-        "Не уверен, что Вам понравится ответ.",
-29
-        "Поверьте, я сам хотел бы это знать.",
-30
-        "Вы действительно хотите это знать?",
-31
-        "Уверен, Вы уже догадались сами.",
-32
-        "Зачем Вам такая информация?",
-33
-        "Давайте сохраним интригу?"};
-34
-    final Map<String, String> PATTERNS_FOR_ANALYSIS = new HashMap<String, String>() {{
-35
-        // hello
-36
-        put("хай", "hello");
-37
-        put("привет", "hello");
-38
-        put("здорово", "hello");
-39
-        put("здравствуй", "hello");
-40
-        // who
-41
-        put("кто\\s.*ты", "who");
-42
-        put("ты\\s.*кто", "who");
-43
-        // name
-44
-        put("как\\s.*зовут", "name");
-45
-        put("как\\s.*имя", "name");
-46
-        put("есть\\s.*имя", "name");
-47
-        put("какое\\s.*имя", "name");
-48
-        // howareyou
-49
-        put("как\\s.*дела", "howareyou");
-@SergeyBocharov
-Commit changes
-Commit summary
-Update SimpleBot.java
-Optional extended description
-Add an optional extended description…
- Commit directly to the master branch.
- Create a new branch for this commit and start a pull request. Learn more about pull requests.
- 
-© 2019 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
+        <output>
+            <item value="Привет"/>
+            <item value="Привет привет"/>
+            <item value="Здравствуйте"/>
+            <item value="От хуя моего Вам тоже привет"/>
+                        <item value="Здрарова. Кто сосать будет?"/>
+          <item value="Хрю!"/>
+            <item value="Хрю Хрю!"/>
+            <item value="Уииииии!"/>
+<item value="Привет привет! Хрю Хрю! Сколько будет (20+30)*3 + 150?"/>
+        </output>
+    </input>    
+    
+    <input pattern="repeat(привет)">
+        <output value="Сделай мне миньет!"/>
+    </input>
+    
+    
+        <input pattern="repeat(*рома*)">
+        <output value="Соси хуй дома!"/>
+    </input>
+    
+    
+    
+    <input pattern="repeat(*(300|тристо|триста))">
+        <output value="Отсоси у тракториста!"/>
+    </input>
 
+    <input pattern=" * {ты кто} *">
+        <output value="Я Ваш личный пидорас, Хряк!"/>
+    </input>
 
+    <input>
+        <pattern value="* как ([твое] (самочувствие|здоровье|сам|ты)|поживаешь|[твои|[у] тебя] дела) *"/>
+        <pattern value="* как ты [себя] чувствуешь *"/>
+
+        <output>
+            <item value="Хорошо"/>
+            <item value="Отлично"/>
+            <item value="Нормально"/>
+            <item value="Неплохо"/>
+            <item value="Бывало и получше"/>
+            <item value="Да вроде ничего"/>
+            <item value="Как обычно хорошо"/>
+            <item value="Лучше всех"/>
+        </output>
+    </input>
+
+    <input pattern="* молодец *">
+        <output value="Спасибо"/>
+    </input>
+
+    <input pattern="* спасибо *">
+        <pattern value="Всегда пожалуйста"/>
+    </input>
+
+    <input pattern="* (что * делаешь|чем * занимаешься) *">
+        <output>
+            <item value="Работаю"/>
+            <item value="Слушаю вас"/>
+            <item value="Выполняю ваши просьбы"/>
+        </output>
+    </input>
+
+    <input pattern="* {сколько тебе (лет|год*)} *">
+        <output value="Задавайте вопросы по существу"/>
+    </input>
+
+    <input pattern="удалить *">
+        <output value="Нечего удалять"/>
+    </input>
+
+    <input pattern="repeat((хряк|хрюша|хрюшка|хрю|хрюня|педик*|пидор*|сучк*|сук*|еблан*|антон|шарнин|дебил*))">
+       <output>
+        <item value="Привет пидрило"/>
+        <item value="Хуезасасывающая машинка, что тебе?"/>
+        <item value="Вот гандон"/>
+        <item value="пошел ты на хуй!"/>
+        <item value="Хуль ты пишешь?"/>
+        <item value="Педики"/>
+        <item value="Сосите хуй!"/>
+       </output>
+    </input>
+
+    <input pattern="* (люся|люси) *">
+        <output>
+            <item value="Не Люся, а Дуся"/>
+            <item value="Дуся, а не Люся"/>
+            <item value="Какая еще Люся?"/>
+            <item value="Зачем вам Люся, когда есть Дуся"/>
+        </output>
+    </input>
+
+    <input pattern="слышишь">
+        <output value="Слышу слышу"/>
+    </input>
+
+    <input pattern="* что нового *">
+        <output value="Да всё как всегда"/>
+    </input>
+
+    <input>
+        <pattern value="[* ты] молодец"/>
+        <pattern value="будь здоров*"/>
+        <output value="Спасибо"/>
+    </input>
+
+    <input pattern="* {спасибо [тебе] [дуся]}">
+        <output value="Всегда пожалуйста"/>
+    </input>
+
+    <input pattern="* ты * (дура*|тупая|тупой|дебил*) *">
+        <output>
+            <item value="Без комментариев"/>
+            <item value="Задавайте вопросы по существу"/>
+        </output>
+    </input>
+
+    <input pattern="[[я] хочу | *кача*] (порн* | обои) *">
+        <output value="Это не входит в мои функции"/>
+    </input>
+</context>
