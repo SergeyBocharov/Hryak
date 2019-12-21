@@ -9,7 +9,7 @@
 
     <input pattern="* (привет*|здравствуй*) *">
         <output if="full($UserName)">
-            <var name="UserName2" value="javascript: rn.('$UserName')(rn.gcaseRod)" scope="user"/>
+            <var name="UserName2" value="javascript: rn.('Сергей')(rn.gcaseRod)" scope="user"/>
             <item value="Привет, $UserName2! Рада снова видеть тебя!"/>
             <item value="Здравствуй, $UserName2! Я уже успела соскучиться..."/>
         </output>
