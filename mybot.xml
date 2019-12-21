@@ -16,7 +16,7 @@
             <output value="Привет! Меня зовут Хряк! А это - демонстрация моего члена и также моих навыков, созданных с помощью Сергея Бочарова. Как тебя зовут?"/>
 
             <input pattern="$Text">
-                <var name="UserName" value="javascript: $req_user_name"  scope="user"/>
+                <var name="UserName" value="javascript: $req_user_firstname"  scope="user"/>
                 <output value="Ты чмо, $UserName! Но приятно познакомиться! Напиши мне что-нибудь."/>
                 <context/>
             </input>
