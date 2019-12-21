@@ -1,39 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?>
-
 <context>
 
     <sample>
-        <item value="Кто такая Алиса"/>
-        <item value="Что такое бот"/>
+        <item value=""/>
+        <item value=""/>
     </sample>
 
-    <input pattern="* (привет*|здравствуй*) *">
+    <input pattern="* (привет*|здравствуй*|хой|эх|хай|хэй|салам|здоров*|здаров*|хряк) *">
+        <var name="UserName" value="javascript: $req_user_name.split(' ')[0]"  scope="user"/>
         <output if="full($UserName)">
-            <item value="Привет, $UserName! Рада снова видеть тебя!"/>
-            <item value="Здравствуй, $UserName! Я уже успела соскучиться..."/>
+            <item value="Здорова, $UserName! Рад снова видеть тебя! Хуй сосать будешь?"/>
+            <item value="Привет, $UserName! Ты мне хорошо вылезал дупло! Я уже успел соскучиться..."/>
+            <item value="Привет! Меня зовут Хряк! А это - демонстрация моего члена и также моих навыков, созданных с помощью Сергея Бочарова. А ты — $UserName. Это тебя я вчера по свински трахнул?"/>
         </output>
 
-        <context if="empty($UserName)" id="name">
-            <output value="Привет! Меня зовут Алиса! А это - демонстрация моего навыка, созданного с помощью платформы zenbot. Как тебя зовут?"/>
+        <context if="empty($UserName2)" id="name">
+            <output value="Привет! Меня зовут Хряк! А это - демонстрация моего члена, предназначенного для твоей жопы ,$UserName. А как зовут человека, которому ты хотел насать в рот?"/>
 
             <input pattern="$Text">
-                <var name="UserName" value="cap($Text)" scope="user"/>
-                <output value="Приятно познакомиться, $UserName! Напиши мне что-нибудь."/>
+                <var name="UserName2" value="cap($Text)" scope="user"/>
+                <output value="О как интересно! А давай $UserName2 хуй мой оближет! Напиши мне что-нибудь."/>
                 <context/>
             </input>
         </context>
     </input>
 
-    <input pattern="* пока *">
+    <input pattern="* (пока|пошел на*|я спать|заткнись) *">
         <var name="end_session" value="javascript: true"/>
-        <output value="Ну пока, незнакомец!" if="empty($UserName)"/>
-        <output value="Пока-пока, $UserName!"/>
+       <output if="full($UserName)"> 
+           <var name="Sergey" value="Сергей Бочаров" scope="user"/>
+         <item value="Да, $UserName, вы мой госпадин, а я ваша шлюшка свинка! Я умолкаю!" if="full($UserName2=$Sergey)"/>
+        <item value="Ну пока, $UserName! Интересно, мой хуй в твою жопу полезит?" />
+        <item value="Пошел на хуй, $UserName! Чтобы тебя тараканы обосали ночью и $UserName2 выебал тебя и в рот и в жопу пока спишь"/>
+       </output>    
     </input>
 
     <input pattern="[* (кто|что) так*] $Text">
-        <context id="name" if="empty($UserName)"/>
+        <context id="name" if="empty($UserName2)"/>
 
-        <context id="wiki" if="full($UserName)">
+        <context id="wiki" if="full($UserName2)">
             <get url="http://ru.wikipedia.org/w/api.php" var="Wiki">
                 <param name="format" value="xml"/>
                 <param name="action" value="opensearch"/>
@@ -41,18 +45,19 @@
             </get>
 
             <var name="Items" value="javascript: $Wiki['SearchSuggestion']['Section']['Item']" if="full($Wiki)" scope="context"/>
-            <var name="Result" value="javascript: $Items['Math.floor(Math.random() * $Items.length)']['Description']['content']" if="full($Items)"/>
+            <var name="Result" value="javascript: $Items[Math.floor(Math.random() * $Items.length)]['Description']['content']" if="full($Items)"/>
 
             <output if="empty($Result)">
-                <item value='Я поискала в википедии, но ничего не нашла по запросу "$Text"'/>
-                <item value="В википедии ничего не нашлось..."/>
+                <item value='Я поискал в своих источниках, но мне сказали чтобы ты, $UserName, хуй сосал. А про эту хуйню: "$Text" я тебе ничего не расскажу'/>
+                <item value="У мамки своей спроси..."/>
+                <item value='Все говорят: "$Text", а $UserName2 пусть хуй в рот тебе сунет ...' if="full($UserName2)"/>
             </output>
 
-            <output value="$Items" />
+            <output value="$Result" if="full($Result)"/>
 
             <input pattern="* (еще|другой вариант) *"/>
 
-            <sample value="Другой вариант"/>
+            <sample value="Дальше в уши хуй вкручивай! "/>
         </context>
 
 
