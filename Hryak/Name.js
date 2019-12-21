@@ -12,6 +12,9 @@
  * @author   Johnny Woo <agalkin@agalkin.ru>
  */
 
+var rn = new RussianName('Паниковский Михаил Самуэльевич');
+rn.fullName(rn.gcaseRod); // Паниковского Михаила Самуэльевича
+
 var RussianNameProcessor = {
 	sexM: 'm',
 	sexF: 'f',
