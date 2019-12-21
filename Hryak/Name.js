@@ -13,7 +13,7 @@
  */
 
 var rn = new RussianName('Паниковский Михаил Самуэльевич');
-rn.fullName(rn.gcaseRod); // Паниковского Михаила Самуэльевича
+var gop = rn.fullName(rn.gcaseRod); // Паниковского Михаила Самуэльевича
 
 var RussianNameProcessor = {
 	sexM: 'm',
