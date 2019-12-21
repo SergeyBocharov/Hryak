@@ -2,64 +2,6 @@
 
     <sample>
         <item value="Кто такой Хряк"/>
-        <item value="Что такое миньет"/>
-        <item value="Сосать будешь?"/>
-    </sample>
-
-    <input pattern="* (привет*|здравствуй*|хой|эх|хай|хэй|салам|здоров*|здаров*) *">
-        <var name="UserName" value="javascript: $req_user_name.split(' ')[0]"  scope="user"/>
-        <output if="full($UserName)">
-            <item value="Здорова, $UserName! Рад снова видеть тебя! Хуй сосать будешь?"/>
-            <item value="Привет, $UserName! Ты мне хорошо вылезал дупло! Я уже успел соскучиться..."/>
-            <item value="Привет! Меня зовут Хряк! А это - демонстрация моего члена и также моих навыков, созданных с помощью Сергея Бочарова. А ты — $UserName. Это тебя я вчера по свински трахнул?"/>
-        </output>
-    </input>
-        </context>
-
-    <input pattern="* (пока|пошел на*|я спать) *">
-        <var name="end_session" value="javascript: true"/>
-        <output value="Ну пока, незнакомец!Интересно, мой хуй в твою жопу полезит?" if="empty($UserName)"/>
-        <output value="Пошел на хуй, $UserName! Чтобы тебя тараканы обосали ночью и кто-нибудь выебал пока ты спишь"/>
-    </input>
-
-    <input pattern="[* (кто|что) так*] $Text">
-        <context id="name" if="empty($UserName)"/>
-
-        <context id="wiki" if="full($UserName)">
-            <get url="http://ru.wikipedia.org/w/api.php" var="Wiki">
-                <param name="format" value="xml"/>
-                <param name="action" value="opensearch"/>
-                <param name="search" value="$Text"/>
-            </get>
-
-            <var name="Items" value="javascript: $Wiki['SearchSuggestion']['Section']['Item']" if="full($Wiki)" scope="context"/>
-            <var name="Result" value="javascript: $Items[Math.floor(Math.random() * $Items.length)]['Description']['content']" if="full($Items)"/>
-
-            <output if="empty($Result)">
-                <item value='Я поискал в своих источниках, но мне сказали чтобы ты, $UserName, хуй сосал. А про эту хуйню: "$Text" я тебе ничего не расскажу'/>
-                <item value="У мамки своей спроси..."/>
-                <item value='Все говорят: "$Text", а ты сосни хуйца у свинки ...'/>
-            </output>
-
-            <output value="$Result" if="full($Result)"/>
-
-            <input pattern="* (еще|Если пидораса не устроил ответ, могу другой вариант подобрать) *"/>
-
-            <sample value="Дальше, $UserName, вам в уши хуй вкручивать? "/>
-        </context>
-
-
-    </input>
-
-</context>
-
-
-
-
-<context>
-
-    <sample>
-        <item value="Кто такой Хряк"/>
         <item value="Бухать или не бухать?"/>
     </sample>
 
