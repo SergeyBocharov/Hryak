@@ -32,6 +32,7 @@
 
     <input pattern="[* (кто|что) так*] $Text">
         <context id="name" if="empty($UserName)"/>
+        </context>
 
         <context id="wiki" if="full($UserName)">
             <get url="http://ru.wikipedia.org/w/api.php" var="Wiki">
