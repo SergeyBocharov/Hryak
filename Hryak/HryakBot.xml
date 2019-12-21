@@ -18,8 +18,8 @@
 
             <input pattern="$Text">
                 <var name="UserName" value="cap($Text)" scope="user"/>
-                <var name="UserName2" value="javascript: $UserName.gcaseRod" scope="user"/>
-                <output value="Приятно познакомиться, $UserName! Напиши мне что-нибудь."/>
+                <var name="UserName2" value="javascript: rn.$UserName(rn.gcaseRod)" scope="user"/>
+                <output value="Приятно познакомиться, $UserName! $UserName2 Напиши мне что-нибудь."/>
                 <context/>
             </input>
         </context>
