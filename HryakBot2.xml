@@ -32,7 +32,6 @@
 
     <input pattern="[* (кто|что) так*] $Text">
         <context id="name" if="empty($UserName)"/>
-        </context>
 
         <context id="wiki" if="full($UserName)">
             <get url="http://ru.wikipedia.org/w/api.php" var="Wiki">
@@ -49,7 +48,7 @@
                 <item value="В википедии ничего не нашлось..."/>
             </output>
 
-            <output value="$Result" if="full($Result)"/>
+            <output value="$Result" if="full($Items)"/>
 
             <input pattern="* (еще|другой вариант) *"/>
 
