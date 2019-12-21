@@ -27,7 +27,7 @@
     <input pattern="* (пока|пошел на*|я спать|заткнись) *">
         <var name="end_session" value="javascript: true"/>
        <output if="full($UserName)"> 
-           <var name="Sergey" value="Сергей" scope="user"/>
+           <var name="Sergey" value="Сергей Бочаров" scope="user"/>
          <item value="Да, $UserName, вы мой госпадин, а я ваша шлюшка свинка! Я умолкаю!" if="full($UserName2=$Sergey)"/>
         <item value="Ну пока, $UserName! Интересно, мой хуй в твою жопу полезит?" />
         <item value="Пошел на хуй, $UserName! Чтобы тебя тараканы обосали ночью и $UserName2 выебал тебя и в рот и в жопу пока спишь"/>
