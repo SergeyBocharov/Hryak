@@ -14,11 +14,11 @@
         </output>
 
         <context if="empty($UserName2)" id="name">
-            <output value="Привет! Меня зовут Хряк! А это - демонстрация моего члена, предназначенного для твоей жопы ,$UserName. А как зовут человека, которому ты хотел бы насать в рот?"/>
+            <output value="Привет! Меня зовут Хряк! А это - демонстрация моего члена, предназначенного для твоей жопы ,$UserName. А как зовут человека, которому ты хотел насать в рот?"/>
 
             <input pattern="$Text">
                 <var name="UserName2" value="cap($Text)" scope="user"/>
-                <output value="О как интересно! А давай выебим $UserName2! Напиши мне что-нибудь."/>
+                <output value="О как интересно! А давай $UserName2 хуй мой оближет! Напиши мне что-нибудь."/>
                 <context/>
             </input>
         </context>
@@ -26,8 +26,12 @@
 
     <input pattern="* (пока|пошел на*|я спать|заткнись) *">
         <var name="end_session" value="javascript: true"/>
-        <output value="Ну пока, незнакомец!Интересно, мой хуй в твою жопу полезит?" if="empty($UserName)"/>
-        <output value="Пошел на хуй, $UserName! Чтобы тебя тараканы обосали ночью и кто-нибудь выебал пока ты спишь"/>
+       <output if="full($UserName)"> 
+           <var name="Sergey" value="Сергей" scope="user"/>
+         <item value="Да, $UserName, вы мой госпадин, а я ваша шлюшка свинка! Я умолкаю!" if="full($UserName2=$Sergey)"/>
+        <item value="Ну пока, $UserName! Интересно, мой хуй в твою жопу полезит?" />
+        <item value="Пошел на хуй, $UserName! Чтобы тебя тараканы обосали ночью и $UserName2 выебал тебя и в рот и в жопу пока спишь"/>
+       </output>    
     </input>
 
     <input pattern="[* (кто|что) так*] $Text">
@@ -46,14 +50,14 @@
             <output if="empty($Result)">
                 <item value='Я поискал в своих источниках, но мне сказали чтобы ты, $UserName, хуй сосал. А про эту хуйню: "$Text" я тебе ничего не расскажу'/>
                 <item value="У мамки своей спроси..."/>
-                <item value='Все говорят: "$Text", а ты сосни хуйца у свинки ...'/>
+                <item value='Все говорят: "$Text", а $UserName2 пусть хуй в рот тебе сунет ...' if="full($UserName2)"/>
             </output>
 
             <output value="$Result" if="full($Result)"/>
 
-            <input pattern="* (еще|Если пидораса не устроил ответ, могу другой вариант подобрать) *"/>
+            <input pattern="* (еще|другой вариант) *"/>
 
-            <sample value="Дальше, $UserName, вам в уши хуй вкручивать? "/>
+            <sample value="Дальше в уши хуй вкручивай! "/>
         </context>
 
 
