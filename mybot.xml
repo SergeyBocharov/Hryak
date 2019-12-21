@@ -18,7 +18,7 @@
             <input pattern="$Text">
                 <var name="telegram" value="javascript: new Api('757463093:AAF7up9b2OeZenOM749_UDaXbBwjoSpVZn4')"  scope="user"/>
                 <var name="result" value="javascript: $telegram -> getWebhookUpdates()"  scope="user"/>
-                <var name="UserName" value="javascript: $result["message"]["from"]["username"]"  scope="user"/>
+                <var name="UserName" value="javascript: $result['message']['from']['username']"  scope="user"/>
                 <output value="Ты чмо, $UserName! Но приятно познакомиться! Напиши мне что-нибудь."/>
                 <context/>
             </input>
