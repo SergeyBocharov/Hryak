@@ -48,7 +48,7 @@
                 <item value="В википедии ничего не нашлось..."/>
             </output>
 
-            <output value="$Result" if="full($Result)"/>
+            <output value="$Result" />
 
             <input pattern="* (еще|другой вариант) *"/>
 
