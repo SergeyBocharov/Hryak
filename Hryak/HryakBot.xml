@@ -18,7 +18,7 @@
 
             <input pattern="$Text">
 
-                <var name="UserName" value="javascript: $gop" scope="user"/>
+                <var name="UserName" value="javascript: $rn" scope="user"/>
                 <output value="Приятно познакомиться, $UserName! $UserNami Напиши мне что-нибудь."/>
                 <context/>
             </input>
