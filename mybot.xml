@@ -15,7 +15,7 @@
             <output value="Привет! Меня зовут Алиса! А это - демонстрация моего навыка, созданного с помощью платформы zenbot. Как тебя зовут?"/>
 
             <input pattern="$Text">
-                <var name="UserName" value="javascript: $req_user_name.split(' ')[0]" scope="user"/>
+                <var name="UserName" value="cap($Text)" scope="user"/>
                 <output value="Приятно познакомиться, $UserName! Напиши мне что-нибудь."/>
                 <context/>
             </input>
@@ -57,4 +57,3 @@
     </input>
 
 </context>
-
