@@ -9,8 +9,8 @@
 
     <input pattern="* (привет*|здравствуй*) *">
         <output if="full($UserName)">
-            <item value="Привет, $UserName! $UserNames  Рада снова видеть тебя!"/>
-            <item value="Здравствуй, $UserName! $UserNames Я уже успела соскучиться..."/>
+            <item value="Привет, $UserName! $UserNami Рада снова видеть тебя!"/>
+            <item value="Здравствуй, $UserName! $UserNami Я уже успела соскучиться..."/>
         </output>
 
         <context if="empty($UserName)" id="name">
@@ -18,9 +18,9 @@
 
             <input pattern="$Text">
                 <var name="rn" value="javascript: new RussianName('')" />
-                <var name="UserNames" value="javascript: rn.Text(rn.gcaseRod)" />
+                <var name="UserNami" value="javascript: rn.Text(rn.gcaseRod)" />
                 <var name="UserName" value="cap($Text)" scope="user"/>
-                <output value="Приятно познакомиться, $UserName! Напиши мне что-нибудь."/>
+                <output value="Приятно познакомиться, $UserName! $UserNami Напиши мне что-нибудь."/>
                 <context/>
             </input>
         </context>
