@@ -7,20 +7,13 @@
     </sample>
 
     <input pattern="* (привет*|здравствуй*|хой|эх|хай|хэй|салам|здоров*|здаров*) *">
+        <var name="UserName" value="javascript: $req_user_name.split(' ')[0]"  scope="user"/>
         <output if="full($UserName)">
             <item value="Здорова, $UserName! Рад снова видеть тебя! Хуй сосать будешь?"/>
             <item value="Привет, $UserName! Ты мне хорошо вылезал дупло! Я уже успел соскучиться..."/>
+            <item value="Привет! Меня зовут Хряк! А это - демонстрация моего члена и также моих навыков, созданных с помощью Сергея Бочарова. А ты — $UserName. Это тебя я вчера по свински трахнул?"/>
+
         </output>
-
-        <context if="empty($UserName)" id="name">
-            <output value="Привет! Меня зовут Хряк! А это - демонстрация моего члена и также моих навыков, созданных с помощью Сергея Бочарова. Как тебя зовут?"/>
-
-            <input pattern="$Text">
-                <var name="UserName" value="javascript: $req_user_name.split(' ')[0]"  scope="user"/>
-                <output value="Ты чмо, $UserName! Но приятно познакомиться! Напиши мне что-нибудь."/>
-                <context/>
-            </input>
-        </context>
     </input>
 
     <input pattern="* (пока|пошел на*|я спать) *">
