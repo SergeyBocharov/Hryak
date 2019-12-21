@@ -17,9 +17,8 @@
             <output value="Привет! Меня зовут Алиса! А это - демонстрация моего навыка, созданного с помощью платформы zenbot. Как тебя зовут?"/>
 
             <input pattern="$Text">
-                <var name="rn" value="javascript: new RussianName('$Text')" />
-                <var name="gcaseRod" value="javascript: $rn.gcaseRod" />
-                <var name="UserName" value="javascript: $rn.fullName('$gcaseRod')" scope="user"/>
+
+                <var name="UserName" value="javascript: $gop" scope="user"/>
                 <output value="Приятно познакомиться, $UserName! $UserNami Напиши мне что-нибудь."/>
                 <context/>
             </input>
