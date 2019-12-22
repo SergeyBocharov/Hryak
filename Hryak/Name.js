@@ -14,7 +14,7 @@
 final Context context = Context.enter(); 
 try { final ScriptableObject scope = context.initStandardObjects(); 
      ScriptableObject.defineClass(scope, Target.class, false, true); 
-     context.evaluateString(scope, script, "script", 1, null); // etc. } finally { Context.exit(); }
+     context.evaluateString(scope, script, "script", 1, null); 
 
 
 var RussianNameProcessor = {
@@ -288,3 +288,4 @@ RussianName.prototype = {
 		return RussianNameProcessor.word(this.mn, this.sex, 'middleName', gcase);
 	}
 }
+etc. } finally { Context.exit(); }
