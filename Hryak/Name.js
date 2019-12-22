@@ -268,9 +268,9 @@ RussianName.prototype = {
 	
 	fullName: function(gcase) {
 		return (
-			(this.fullNameSurnameLast ? '' : this.lastName(gcase) + ' ')
+			(this.fullNameSurnameLast ? ' ' : this.lastName(gcase) + ' ')
 			+ this.firstName(gcase) + ' ' + this.middleName(gcase) +
-			(this.fullNameSurnameLast ? ' ' + this.lastName(gcase) : '')
+			(this.fullNameSurnameLast ? ' ' + this.lastName(gcase) : ' ')
 		).replace(/^ +| +$/g, '');
 	},
 	lastName: function(gcase) {
