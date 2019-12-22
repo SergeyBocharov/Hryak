@@ -236,7 +236,7 @@ var RussianName = function(lastName, firstName, middleName, sex) {
 			middleName = m[5];
 		}
 	}
-	this.ln = lastName;
+	this.ln = lastName || '';
 	this.fn = firstName || '';
 	this.mn = middleName || '';
 	this.sex = sex || this.getSex();
