@@ -16,7 +16,7 @@ var RussianNameProcessor = {
 	sexM: 'm',
 	sexF: 'f',
 	gcaseIm:   'nominative',      gcaseNom: 'nominative',      // именительный
-	gcaseRod:  'genitivezm',        gcaseGen: 'genitive',        // родительный
+	gcaseRod:  'genitive',        gcaseGen: 'genitive',        // родительный
 	gcaseDat:  'dative',                                       // дательный
 	gcaseVin:  'accusative',      gcaseAcc: 'accusative',      // винительный
 	gcaseTvor: 'instrumentative', gcaseIns: 'instrumentative', // творительный
