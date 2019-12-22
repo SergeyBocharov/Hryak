@@ -8,6 +8,7 @@
     </sample>
 
     <input pattern="* (привет*|здравствуй*) *">
+        <var name="UserName" value="javascript: $req_user_name.split(' ')[0]"  scope="user"/>
         <output if="full($UserName)">
             <item value="Привет, $UserName! $UserNami Рада снова видеть тебя!"/>
             <item value="Здравствуй, $UserName! $UserNami Я уже успела соскучиться..."/>
@@ -17,7 +18,6 @@
             <output value="Привет! Меня зовут Алиса! А это - демонстрация моего навыка, созданного с помощью платформы zenbot. Как тебя зовут?"/>
 
             <input pattern="$Text">
-                <var name="UserName" value="javascript: $req_user_name.split(' ')[0]"  scope="user"/>
                 <var name="UserNameFalgh" value="cap($Text)" scope="context"/>
                 <output value="Приятно познакомиться, $UserNameFalsh, но я буду звать тебя — $UserName-Хуесос!"/>
                 <context/>
