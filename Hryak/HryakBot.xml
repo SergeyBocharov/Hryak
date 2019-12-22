@@ -8,7 +8,7 @@
     </sample>
 
     <input pattern="* (привет*|здравствуй*) *">
-        <var name="UserName" value="javascript: $req_user_name.split(' ')[0]"  scope="context"/>
+        <var name="UserName" value="javascript: $req_user_name.split(' ')[0]" />
         <output if="full($UserName)">
             <item value="Привет, $UserName! $UserNami Рада снова видеть тебя!"/>
             <item value="Здравствуй, $UserName! $UserNami Я уже успела соскучиться..."/>
