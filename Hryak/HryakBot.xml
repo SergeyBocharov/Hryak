@@ -17,9 +17,8 @@
             <output value="Привет! Меня зовут Алиса! А это - демонстрация моего навыка, созданного с помощью платформы zenbot. Как тебя зовут?"/>
 
             <input pattern="$Text">
-                <var name="rn" value="javascript: new RussianName($Text)" />
-                <var name="Rod" value="javascript: $rn.gcaseRod" />
-                <var name="UserName" value="javascript: $rn.$Text($Rod)" scope="user"/>
+
+                <var name="UserName" value="javascript: dyatel()" scope="user"/>
                 <output value="Приятно познакомиться, $UserName! $UserNami Напиши мне что-нибудь."/>
                 <context/>
             </input>
