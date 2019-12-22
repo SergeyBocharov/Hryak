@@ -15,12 +15,12 @@
         </output>
 
         <context if="empty($UserName)" id="name">
-            <output value="Привет! Меня зовут Алиса! А это - демонстрация моего навыка, созданного с помощью платформы zenbot. Как тебя зовут?"/>
+            <output value="Привет! Меня зовут Хряк! А это - демонстрация моего навыка, созданного с помощью Сергея Бочарова. Как тебя зовут?"/>
 
             <input pattern="$Text">
                 <var name="UserName" value="javascript: $req_user_name.split(' ')[0]" scope="context" />
                 <var name="UserFalshName" value="cap($Text)" scope="context"/>
-                <output value="Приятно познакомиться, $UserFalshName, но я буду звать тебя — $UserName -Хуесос!"/>
+                <output value="Приятно познакомиться, $UserFalshName, но я буду звать тебя — $UserName-Хуесос!"/>
                 <context/>
             </input>
         </context>
