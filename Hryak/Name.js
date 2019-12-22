@@ -12,7 +12,7 @@
  * @author   Johnny Woo <agalkin@agalkin.ru>
  */
 
-
+var Rod = typeof Rod !== 'undefined' ?  Rod : 1;
 var RussianNameProcessor = {
 	sexM: 'm',
 	sexF: 'f',
