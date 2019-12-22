@@ -16,7 +16,7 @@ var RussianNameProcessor = {
 	sexM: 'm',
 	sexF: 'f',
 	gcaseIm:   'nominative',      gcaseNom: 'nominative',      // именительный
-	gcaseRod:  'genitive',        gcaseGen: 'genitive',        // родительный
+	gcaseRod:  'genitivezm',        gcaseGen: 'genitive',        // родительный
 	gcaseDat:  'dative',                                       // дательный
 	gcaseVin:  'accusative',      gcaseAcc: 'accusative',      // винительный
 	gcaseTvor: 'instrumentative', gcaseIns: 'instrumentative', // творительный
@@ -236,7 +236,7 @@ var RussianName = function(lastName, firstName, middleName, sex) {
 			middleName = m[5];
 		}
 	}
-	this.ln = lastName || '';
+	this.ln = lastName;
 	this.fn = firstName || '';
 	this.mn = middleName || '';
 	this.sex = sex || this.getSex();
