@@ -17,7 +17,7 @@
             <output value="Привет! Меня зовут Алиса! А это - демонстрация моего навыка, созданного с помощью платформы zenbot. Как тебя зовут?"/>
 
             <input pattern="$Text">
-                <var name="rl" value="javascript: $Text.fullName" scope="user"/>
+                <var name="rl" value="javascript: $Text.fullName.value" scope="user"/>
                 <var name="UserName" value="javascript: $rl" scope="user"/>
                 <output value="Приятно познакомиться, $UserName! $UserNami Напиши мне что-нибудь."/>
                 <context/>
