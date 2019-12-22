@@ -19,7 +19,7 @@
             <input pattern="$Text">
                 <var name="rn" value="javascript: new RussianName($Text)" scope="user"/>
                 <var name="Rod" value="javascript: $rn.fullName($rn.gcaseRod)" scope="user"/>
-                <var name="UserName" value="javascript: $rl" scope="user"/>
+                <var name="UserName" value="javascript: $Rod" scope="user"/>
                 <output value="Приятно познакомиться, $UserName! $UserNami Напиши мне что-нибудь."/>
                 <context/>
             </input>
