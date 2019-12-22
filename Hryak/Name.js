@@ -11,7 +11,15 @@
  * @version  0.1.6
  * @author   Johnny Woo <agalkin@agalkin.ru>
  */
-
+function dyatel {
+	try {
+		var rn = new RussianName('$Text');
+		var Rod = rn.$Text(rn.gcaseRod);
+		echo Rod;
+	} catch(e) {
+		box.innerHTML = '<br /><br />Не удалось распознать ФИО.';
+	}
+}
 
 var RussianNameProcessor = {
 	sexM: 'm',
