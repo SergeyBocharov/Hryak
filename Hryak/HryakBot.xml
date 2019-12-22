@@ -18,8 +18,8 @@
             <output value="Привет! Меня зовут Алиса! А это - демонстрация моего навыка, созданного с помощью платформы zenbot. Как тебя зовут?"/>
 
             <input pattern="$Text">
-                <var name="UserNameFalgh" value="cap($Text)" scope="context"/>
-                <output value="Приятно познакомиться, $UserNameFalsh, но я буду звать тебя — $UserName-Хуесос!"/>
+                <var name="UserFalshName" value="cap($Text)" scope="context"/>
+                <output value="Приятно познакомиться, $UserFalshName, но я буду звать тебя — $UserName-Хуесос!"/>
                 <context/>
             </input>
         </context>
