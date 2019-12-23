@@ -1,2 +1,2 @@
 
-  var UserNamn = 'jon';
+  var UserNamn = ('jon');
