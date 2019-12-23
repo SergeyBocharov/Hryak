@@ -1,2 +1,2 @@
-String UserNamn = new User().getFirstName();
+var UserNamn = new User().getFirstName();
 
