@@ -5,7 +5,7 @@
         <item value="Что такое бот"/>
     </sample>
 
-    <input pattern="*{ хряк (привет*|здравствуй*) }*">
+    <input pattern="*{ хряк*(привет*|здравствуй*) }*">
         <output if="full($UserName)">
             <item value="Привет, $UserName! Рада снова видеть тебя!"/>
             <item value="Здравствуй, $UserName! Я уже успела соскучиться..."/>
