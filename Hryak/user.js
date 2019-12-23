@@ -1,2 +1,2 @@
-var UserNamn = $req_user_firstname();
+var UserNamn = ("эээ");
 
