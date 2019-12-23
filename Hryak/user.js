@@ -1,2 +1,2 @@
-var UserNamn = ("эээ");
+var UserNamn = "эээ";
 
