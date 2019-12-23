@@ -1,5 +1,2 @@
-public void onUpdateReceived(Update u) {
+String UserNamn = new User().getFirstName();
 
-List<User> users = u.getMessage().getNewChatMembers();
-
- String UserNamn = new User().getFirstName();
