@@ -18,7 +18,6 @@
             <output value="Привет! Меня зовут Хряк! А это - демонстрация моего навыка, созданного с помощью Сергея Бочарова. Как тебя зовут?"/>
 
             <input pattern="$Text">
-                <var name="UserName" value="javascript: $req_user_name.split(' ')[0]" scope="user" />
                 <var name="UserFalshName" value="cap($Text)" scope="context"/>
                 <output value="Приятно познакомиться, $UserFalshNam, но я буду звать тебя — $UserName-Хуесос!"/>
                 <context/>
