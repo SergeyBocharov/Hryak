@@ -20,7 +20,7 @@
             <input pattern="$Text">
                 <var name="UserName" value="javascript: $req_user_name.split(' ')[0]" scope="user" />
                 <var name="UserFalshName" value="cap($Text)" scope="context"/>
-                <output value="Приятно познакомиться, $UserFalshName, но я буду звать тебя — $UserName-Хуесос!"/>
+                <output value="Приятно познакомиться, $UserFalshNam, но я буду звать тебя — $UserName-Хуесос!"/>
                 <context/>
             </input>
         </context>
