@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-
 <context>
 
     <sample>
@@ -7,19 +5,18 @@
         <item value="Что такое бот"/>
     </sample>
 
-    <input pattern="*{ (хряк|все*|сук*|сучк*|пидор*|педик*|чмо*)*(привет*|здравствуй*) }*">
-        
-        <output if="full($UserFalshName)">
-            <item value="Привет, $UserName! $UserNami Рада снова видеть тебя!"/>
-            <item value="Здравствуй, $UserName! $UserNami Я уже успела соскучиться..."/>
+    <input pattern="*{ хряк (привет*|здравствуй*) }*">
+        <output if="full($UserName)">
+            <item value="Привет, $UserName! Рада снова видеть тебя!"/>
+            <item value="Здравствуй, $UserName! Я уже успела соскучиться..."/>
         </output>
 
-        <context if="empty($UserFalshName)" id="name">
-            <output value="Привет! Меня зовут Хряк! А это - демонстрация моего навыка, созданного с помощью Сергея Бочарова. Как тебя зовут?"/>
+        <context if="empty($UserName)" id="name">
+            <output value="Привет! Меня зовут Алиса! А это - демонстрация моего навыка, созданного с помощью платформы zenbot. Как тебя зовут?"/>
 
             <input pattern="$Text">
-                <var name="UserFalshName" value="cap($Text)" scope="user"/>
-                <output value="Приятно познакомиться, $UserFalshName, но я буду звать тебя — $UserName-Хуесос!"/>
+                <var name="UserName" value="cap($Text)" scope="user"/>
+                <output value="Приятно познакомиться, $UserName! Напиши мне что-нибудь."/>
                 <context/>
             </input>
         </context>
