@@ -1,2 +1,2 @@
 
-  var UserNamn = $Text.text();
+  var UserNamn = 'jon';
