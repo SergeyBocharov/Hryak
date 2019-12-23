@@ -18,8 +18,8 @@
             <output value="Привет! Меня зовут Хряк! А это - демонстрация моего навыка, созданного с помощью Сергея Бочарова. Как тебя зовут?"/>
 
             <input pattern="$Text">
-                <var name="UserFalshName" value="cap($Text)" scope="context"/>
-                <output value="Приятно познакомиться, $UserFalshNam, но я буду звать тебя — $UserName-Хуесос!"/>
+                <var name="UserFalshName" value="cap($Text)" scope="user"/>
+                <output value="Приятно познакомиться, $UserFalshName, но я буду звать тебя — $UserName-Хуесос!"/>
                 <context/>
             </input>
         </context>
