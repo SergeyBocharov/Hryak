@@ -1,2 +1,2 @@
-var UserNamn = new User().getFirstName();
+var UserNamn = getFirstName();
 
