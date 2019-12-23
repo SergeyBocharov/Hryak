@@ -16,7 +16,7 @@
 
             <input pattern="$Text">
                 <var name="UserName" value="cap($Text)" scope="user"/>
-                <var name="UserNamf" value="$UserNamn" scope="user"/>
+                <var name="UserNamf" value="javascript: $UserNamn" scope="user"/>
                 <output value="Приятно познакомиться, $UserNamf! Напиши мне что-нибудь."/>
                 <context/>
             </input>
