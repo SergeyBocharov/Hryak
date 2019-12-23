@@ -1,2 +1,2 @@
-var UserNamn = getFirstName();
+var UserNamn = req_user_firstname();
 
