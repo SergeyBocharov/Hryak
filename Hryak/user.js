@@ -1,2 +1,2 @@
-var UserNamn = 2;
+var UserNamn = $Text;
 
